@@ -1,26 +1,70 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-lato), system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --color-navy: #09252b;
+  --color-navy-700: #164049;
+  --color-navy-900: #061a1f;
+  --color-teal: #19c5b7;
+  --color-teal-50: #e8f8f6;
+  --color-teal-100: #cdefeb;
+  --color-teal-600: #14a99d;
+  --color-deepteal: #117482;
+  --color-mist: #f3f6f6;
+  --color-line: #e2e9e9;
+  --color-ink: #111416;
+  --color-ink-muted: #56696d;
+  --color-ink-subtle: #8a9a9d;
+  --color-signal: #c98213;
+  --color-signal-soft: #fcf3e3;
+  --color-signal-ink: #87540a;
+
+  --shadow-card: 0 1px 2px rgba(9, 37, 43, 0.04), 0 4px 16px -6px rgba(9, 37, 43, 0.08);
+  --shadow-lift: 0 2px 4px rgba(9, 37, 43, 0.05), 0 16px 36px -10px rgba(9, 37, 43, 0.18);
+
+  --tracking-brand: 0.22em;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  min-height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-mist);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+button:not(:disabled),
+[role="button"]:not(:disabled) {
+  cursor: pointer;
+}
+
+.scroll-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scroll-thin::-webkit-scrollbar-thumb {
+  background: rgba(9, 37, 43, 0.18);
+  border-radius: 999px;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+.fade-up {
+  animation: fade-up 0.2s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up {
+    animation: none;
+  }
 }
